@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ram</title>
+    <style>
+        /* Add CSS for image float */
+        img {
+            float: right;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ram</h1>
+    <img src="{% static 'ram.jpg' %}" alt="Ram's Image" width="200"> <!-- Make sure to replace "ram.jpg" with the correct image path -->
+    <p>Ram is a fictional character known for his bravery and righteousness.</p>
+    <p>He is depicted as a prince in ancient Indian literature.</p>
+    <p>Ram is often portrayed as an ideal king and husband.</p>
+</body>
+</html>

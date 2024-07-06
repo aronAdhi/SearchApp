@@ -1,0 +1,44 @@
+<!-- right.html -->
+<div class="right">
+    <h2>Dasas and Prediction</h2>
+    <div id="bars-container">
+        {% for item in item_list %}
+            <div class="bar">
+                <div class="bar-title" onclick="toggleDropdown('{{ forloop.counter0 }}')">{{ item.0 }}</div>
+                <div class="dropdown" id="dropdown-{{ forloop.counter0 }}" style="display: none;">
+                    {% for sub_item in item.1 %}
+                        <div class="dropdown-item">{{ sub_item }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    function toggleDropdown(index) {
+        var dropdown = document.getElementById('dropdown-' + index);
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    }
+</script>
+<style>
+    .bar {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+    .bar-title {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .dropdown {
+        margin-top: 10px;
+    }
+    .dropdown-item {
+        padding: 5px;
+        background-color: #f0f0f0;
+    }
+</style>

@@ -1,0 +1,46 @@
+<!-- first_page.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+    <link rel="stylesheet" href="{% static 'first_page.css' %}">
+</head>
+<body>
+    <div class="main">
+        <form id="searchForm" action="">
+            <input id="searchInput" type="text" name="search" placeholder="Search...">
+            <select id="languageSelect" name="language">
+                <option value="english">English</option>
+                <option value="tamil">Tamil</option>
+                <option value="hindi">Hindi</option>
+                <option value="telugu">Telugu</option>
+            </select>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Get the input and select elements
+        const searchInput = document.getElementById('searchInput');
+        const languageSelect = document.getElementById('languageSelect');
+
+        // Event listener for form submission
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the search term and language
+            const searchTerm = searchInput.value.trim();
+            const language = languageSelect.value;
+
+            // Construct the new URL
+            const newUrl = `http://localhost:8000/${searchTerm}`;
+
+            // Redirect to the new URL
+            window.location.href = newUrl;
+        });
+    </script>
+</body>
+</html>

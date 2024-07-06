@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4x4 Table</title>
+<style>
+     .table {
+            border-collapse: collapse;
+            width: 400px; /* Set the width of the table */
+        }
+        
+        .td {
+            width: 100px; /* Set the width of each cell */
+            height: 50px; /* Set the height of each cell */
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+            overflow: hide; /* Hide overflow content */
+            white-space: wrap; /* Prevent text from wrapping */
+        }
+
+        .scrollable {
+            overflow: auto; /* Enable scrolling for overflow content */
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        .highlight {
+            border: 2px solid red; /* Set the border color to red */
+        }
+</style>
+</head>
+<body>
+
+{% with rows=name %}
+<table class="table">
+    <tr>
+        <td class="{% if lakana == 1 %}highlight{% else %}td{% endif %}">{{ rows.0.0 }}</td>
+        <td class="{% if lakana == 2 %}highlight{% else %}td{% endif %}">{{ rows.0.1 }}</td>
+        <td class="{% if lakana == 3 %}highlight{% else %}td{% endif %}">{{ rows.0.2 }}</td>
+        <td class="{% if lakana == 4 %}highlight{% else %}td{% endif %}">{{ rows.0.3 }}</td>
+    </tr>
+    <tr>
+        <td class="{% if lakana == 5 %}highlight{% else %}td{% endif %}">{{ rows.1.0 }}</td>
+        <td colspan="2" rowspan="2">test table</td>
+        <td class="{% if lakana == 6 %}highlight{% else %}td{% endif %}">{{ rows.1.1 }}</td>
+    </tr>
+    <tr>
+        <td class="{% if lakana == 7 %}highlight{% else %}td{% endif %}">{{ rows.2.0 }}</td>
+        <td class="{% if lakana == 8 %}highlight{% else %}td{% endif %}">{{ rows.2.1 }}</td>
+    </tr>
+    <tr>
+        <td class="{% if lakana == 9 %}highlight{% else %}td{% endif %}">{{ rows.4.0 }}</td>
+        <td class="{% if lakana == 10 %}highlight{% else %}td{% endif %}">{{ rows.4.1 }}</td>
+        <td class="{% if lakana == 11 %}highlight{% else %}td{% endif %}">{{ rows.4.2 }}</td>
+        <td class="{% if lakana == 12 %}highlight{% else %}td{% endif %}">{{ rows.4.3 }}</td>
+    </tr>
+</table>
+{% endwith %}
+
+</body>
+</html>
